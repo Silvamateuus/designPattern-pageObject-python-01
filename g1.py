@@ -13,3 +13,6 @@
     #d. Passar para as funcoes __init__
 
 
+from selenium.webdriver.common.by import By 
+from abc import abc
+
