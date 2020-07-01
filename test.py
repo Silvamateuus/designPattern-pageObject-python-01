@@ -35,3 +35,5 @@ from selenium.webdriver import Chrome
 browser = Chrome()
 url = 'https://g1.globo.com/'
 browser.get(url)
+
+
