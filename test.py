@@ -33,7 +33,7 @@ class PageElement(ABS):
 from selenium.webdriver import Chrome 
 
 browser = Chrome()
-url = 'https://g1.globo.com/'
+url = 'https://phptravels.com/demo/'
 browser.get(url)
 
 
