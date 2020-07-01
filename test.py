@@ -13,27 +13,49 @@
     #d. Pass to functions __init__
 
 
+# 1. ---------------------------------------------------------------------------------|
 from selenium.webdriver.common.by import By 
-from abc import abc
+from abc import ABC
 
-#1
-class PageElement(ABS):
+class PageElement(ABC):
 
     def __init__(self, webdriver, url=''):
         self.webdriver = webdriver
         self.url = url 
 
+    def open_browser(self):
+        self.webdriver.get(self.url)     
+
+
+# 2. ---------------------------------------------------------------------------------|
+
+class FirstPart(PageElement):
+
+    button = (By.CLASS_NAME, 'yx-njg')
+
+
+    def click_button(self):
+        self.webdriver.find_element(*self.button).click()
 
 
 
+# 3. ---------------------------------------------------------------------------------|
 
-#---------------------------------------------------------------------------------|
+#  Selenium e chamada das funções
+from selenium.webdriver import Chrome  
 
-#3 - Selenium e chamada das funções
-from selenium.webdriver import Chrome 
-
-browser = Chrome()
+webdriver = Chrome()
 url = 'https://phptravels.com/demo/'
-browser.get(url)
 
 
+
+
+# ------------------------> FisrtPart 
+# Pass instance and url  
+click = FirstPart(webdriver, url)
+click.open_browser()
+# Call function
+click.click_button()
+
+
+# -----------------------> SecoundPart 
