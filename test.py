@@ -16,6 +16,8 @@
 # 1. ---------------------------------------------------------------------------------|
 from selenium.webdriver.common.by import By 
 from abc import ABC
+from urllib.parse import urlparse
+
 
 class PageElement(ABC):
 
@@ -27,22 +29,42 @@ class PageElement(ABC):
         self.webdriver.get(self.url)     
 
 
+
 # 2. ---------------------------------------------------------------------------------|
 
-class FirstPart(PageElement):
+class LoginPage(PageElement):
 
-    button = (By.CLASS_NAME, 'yx-njg')
+    button_togo_login = (By.CLASS_NAME, 'yx-njg')
 
+    email = (By.ID, 'inputEmail')
+    passw = (By.ID, 'inputPassword')
 
-    def click_button(self):
-        self.webdriver.find_element(*self.button).click()
+    def login(self, email, passw):
+        self.webdriver.find_element(*self.button_togo_login).click()
+       
+       # Implement next to page login 
+        webdriver.switch_to_window(*self.webdriver.window_handles[1])
+        
+        sleep(8)
+        self.webdriver.find_element(*self.email).send_keys(email)    
+        self.webdriver.find_element(*self.passw).send_keys(passw)    
+            
+        # Valide page
+        # url_browser = self.webdriver.current_url
+        # url ='https://phptravels.org/clientarea.php'
+        
+        # if url == url_browser:
 
+        #     return f'ok correto: {url_browser}, {url}'
+        # else:
+        #     return f'nops ): {url_browser}, {url}'    
 
 
 # 3. ---------------------------------------------------------------------------------|
 
 #  Selenium e chamada das funções
 from selenium.webdriver import Chrome  
+from time import sleep 
 
 webdriver = Chrome()
 url = 'https://phptravels.com/demo/'
@@ -52,10 +74,17 @@ url = 'https://phptravels.com/demo/'
 
 # ------------------------> FisrtPart 
 # Pass instance and url  
-click = FirstPart(webdriver, url)
-click.open_browser()
+loga = LoginPage(webdriver, url)
+loga.open_browser()
+
 # Call function
-click.click_button()
+
+# Insert value on field of login
+loga.login(
+     email = 'mateus',
+     passw = 'abcd'
+)
 
 
-# -----------------------> SecoundPart 
+
+# -----------------------> Valied link browser
