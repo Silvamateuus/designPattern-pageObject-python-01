@@ -1,3 +1,7 @@
 # page-object-python-01
 
-# Site: https://phptravels.com/demo/
+##### This site is to test only: https://phptravels.com/demo/
+
+
+#### How run?
+    $ python3 test.py
