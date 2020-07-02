@@ -3,5 +3,9 @@
 ##### This site is to test only: https://phptravels.com/demo/
 
 
-#### How run?
+### Need?
+- Install selenium
+- Python 3
+     
+### How run?
     $ python3 test.py
