@@ -1,4 +1,4 @@
-# ---- Roteiro -------------------------------------------------------------------|
+# ---- Pass-------------------------------------------------------------------|
 
 #1 - create class abstract PageElement
     #a. Use lib abstract (abs)
@@ -70,7 +70,7 @@ class LoginPage(PageElement):
 
 # 3. ---------------------------------------------------------------------------------|
 
-#  Selenium e chamada das funções
+#  Selenium call of functions 
 from selenium.webdriver import Chrome  
 from time import sleep 
 
