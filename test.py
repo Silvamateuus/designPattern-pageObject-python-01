@@ -32,7 +32,6 @@ class PageElement(ABC):
     def open_browser(self):
         self.webdriver.get(self.url) 
     
-    
 
 
 # 2. ---------------------------------------------------------------------------------|
@@ -43,6 +42,8 @@ class LoginPage(PageElement):
     email = (By.ID, 'inputEmail')
     passw = (By.ID, 'inputPassword')
     check = (By.NAME, 'rememberme')
+    # captcha = (By.CLASS_NAME, 'recaptcha-checkbox-unchecked')
+    
     def login(self, email, passw):
         # click page init
         self.webdriver.find_element(*self.button_togo_login).click()      
@@ -58,7 +59,7 @@ class LoginPage(PageElement):
             self.webdriver.find_element(*self.email).send_keys(email)    
             self.webdriver.find_element(*self.passw).send_keys(passw)
             self.webdriver.find_element(*self.check).click()    
-            
+            # self.webdriver.find_element(*self.captcha).click()
             return f'ok correto: {url_browser}, {url}'
         else:
             return f'nops ): {url_browser}, {url}'    
