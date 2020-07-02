@@ -4,7 +4,7 @@
 
 
 ### What to need?
-- selenium
+- Selenium
 - Python 3
      
 ### How run?
