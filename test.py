@@ -42,7 +42,7 @@ class LoginPage(PageElement):
     def login(self, email, passw):
         self.webdriver.find_element(*self.button_togo_login).click()
        
-       # Implement next to page login 
+       # Next tabs of page to login  
         self.webdriver.switch_to_window(webdriver.window_handles[1])
         
         sleep(8)
