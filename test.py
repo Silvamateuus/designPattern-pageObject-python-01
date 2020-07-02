@@ -1,3 +1,5 @@
+# ---- Roteiro -------------------------------------------------------------------|
+
 #1 - create class abstract PageElement
     #a. Use lib abstract (abs)
     #b. Create function with  __init__  to get webdriver and url 
@@ -11,6 +13,8 @@
     #b. Declare url 
     #c. Instantiate browser
     #d. Pass to functions __init__
+-----------------------------------------------------------------------------------|
+
 
 
 # 1. ---------------------------------------------------------------------------------|
@@ -70,23 +74,15 @@ from time import sleep
 webdriver = Chrome()
 url = 'https://phptravels.com/demo/'
 
-
-
-
-# ------------------------> FisrtPart 
+ 
 # Pass instance and url  
 loga = LoginPage(webdriver, url)
 loga.open_browser()
 
-# Call function
 
-# Insert value on field of login
-
+# *Call function
+# Insert value on field of login and printed on terminal true or false 
 print (loga.login(
      email = 'mateus',
      passw = 'abcd'
 ))
-
-
-
-# -----------------------> Valied link browser
