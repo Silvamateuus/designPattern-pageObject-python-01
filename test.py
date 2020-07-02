@@ -26,8 +26,9 @@ class PageElement(ABC):
         self.url = url 
 
     def open_browser(self):
-        self.webdriver.get(self.url)     
-
+        self.webdriver.get(self.url) 
+    
+    
 
 
 # 2. ---------------------------------------------------------------------------------|
@@ -35,18 +36,15 @@ class PageElement(ABC):
 class LoginPage(PageElement):
 
     button_togo_login = (By.CLASS_NAME, 'yx-njg')
-
     email = (By.ID, 'inputEmail')
     passw = (By.ID, 'inputPassword')
-
+    check = (By.NAME, 'rememberme')
     def login(self, email, passw):
-        self.webdriver.find_element(*self.button_togo_login).click()
-       
-       # Next tabs of page to login  
+        # click page init
+        self.webdriver.find_element(*self.button_togo_login).click()      
+        # Next tabs of page to login  
         self.webdriver.switch_to_window(webdriver.window_handles[1])
-        
-        sleep(10)
-        
+        sleep(2) 
         # Valide page
         url_browser = self.webdriver.current_url
         url ='https://phptravels.org/clientarea.php'
@@ -54,11 +52,15 @@ class LoginPage(PageElement):
         if url == url_browser:
             # Imputs on fields 
             self.webdriver.find_element(*self.email).send_keys(email)    
-            self.webdriver.find_element(*self.passw).send_keys(passw)    
+            self.webdriver.find_element(*self.passw).send_keys(passw)
+            self.webdriver.find_element(*self.check).click()    
+            
             return f'ok correto: {url_browser}, {url}'
         else:
             return f'nops ): {url_browser}, {url}'    
         
+    def exit_browser(self):        
+        self.webdriver.quit()
             
 
 # 3. ---------------------------------------------------------------------------------|
@@ -87,6 +89,6 @@ print (loga.login(
      passw = 'abcd'
 ))
 
+# exit browser
+loga.exit_browser()
 
-
-# -----------------------> Valied link browser
