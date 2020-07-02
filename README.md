@@ -3,8 +3,8 @@
 ##### This site is to test only: https://phptravels.com/demo/
 
 
-### Need?
-- Install selenium
+### What to need?
+- selenium
 - Python 3
      
 ### How run?
