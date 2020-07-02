@@ -45,20 +45,21 @@ class LoginPage(PageElement):
        # Next tabs of page to login  
         self.webdriver.switch_to_window(webdriver.window_handles[1])
         
-        sleep(8)
-        self.webdriver.find_element(*self.email).send_keys(email)    
-        self.webdriver.find_element(*self.passw).send_keys(passw)    
-            
-        # Valide page
-        # url_browser = self.webdriver.current_url
-        # url ='https://phptravels.org/clientarea.php'
+        sleep(10)
         
-        # if url == url_browser:
-
-        #     return f'ok correto: {url_browser}, {url}'
-        # else:
-        #     return f'nops ): {url_browser}, {url}'    
-
+        # Valide page
+        url_browser = self.webdriver.current_url
+        url ='https://phptravels.org/clientarea.php'
+        
+        if url == url_browser:
+            # Imputs on fields 
+            self.webdriver.find_element(*self.email).send_keys(email)    
+            self.webdriver.find_element(*self.passw).send_keys(passw)    
+            return f'ok correto: {url_browser}, {url}'
+        else:
+            return f'nops ): {url_browser}, {url}'    
+        
+            
 
 # 3. ---------------------------------------------------------------------------------|
 
@@ -80,10 +81,11 @@ loga.open_browser()
 # Call function
 
 # Insert value on field of login
-loga.login(
+
+print (loga.login(
      email = 'mateus',
      passw = 'abcd'
-)
+))
 
 
 
