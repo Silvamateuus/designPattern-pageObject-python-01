@@ -43,7 +43,7 @@ class LoginPage(PageElement):
         self.webdriver.find_element(*self.button_togo_login).click()
        
        # Implement next to page login 
-        webdriver.switch_to_window(*self.webdriver.window_handles[1])
+        self.webdriver.switch_to_window(webdriver.window_handles[1])
         
         sleep(8)
         self.webdriver.find_element(*self.email).send_keys(email)    
