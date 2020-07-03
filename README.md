@@ -3,9 +3,12 @@
 ##### This site is to test only: https://phptravels.com/demo/
 
 
-### What to need?
-- Selenium
-- Python 3
-     
+### Conf: Environment
+    $ python -m venv a_venv
+    $ source a_venv/bin/activate
+    $ pip install selenium 
+    $ code .
+    
 ### How run?
+    
     $ python3 test.py
