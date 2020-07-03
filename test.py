@@ -116,7 +116,7 @@ webdriver = Chrome()
 url = 'https://phptravels.com/'
 
 
-
+# --------------------------------------------------------|
 # ***** PAGE HOME  ***********
 
 page_home = PageHome(webdriver, url)
@@ -127,6 +127,8 @@ sleep(4)
         
 # page_home.exit_browser()
 
+
+# --------------------------------------------------------|
 # ***** PAGE LOGIN  ***********
 
 # Pass instance and url  
