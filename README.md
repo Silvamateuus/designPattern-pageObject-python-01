@@ -2,13 +2,12 @@
 
 ##### This site is to test only: https://phptravels.com/demo/
 
+### Clone the project
+    $ git clone https://github.com/Silvamateuus/designPattern-pageObject-python-01.git
 
-### Conf: Environment
-    $ python -m venv a_venv
-    $ source a_venv/bin/activate
-    $ pip install selenium 
-    $ code .
-    
+### Conf: Environment (Im using environment venv)
+    $ pip install -r requeriments.txt
+
 ### How run?
     
     $ python3 test.py
