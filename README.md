@@ -10,4 +10,4 @@
 
 ### How run?
     
-    $ python3 test.py
+    $ python script_test/test.py
