@@ -1,4 +1,4 @@
-# ---- Pass-------------------------------------------------------------------|
+# ---------------------------- Pass-------------------------------------------------------------------|
 
 #1 - create class abstract PageElement
     #a. Use lib abstract (abs)
@@ -81,8 +81,12 @@ class PageHome(PageElement):
     
         demo = (By.LINK_TEXT, 'Demo')
         pricing = (By.LINK_TEXT, 'Pricing')
-        product =(By.CLASS_NAME, 'yx-njr')
-      
+        
+        # Product       
+        product = (By.CLASS_NAME, 'yx-njr')
+        host_module = (By.LINK_TEXT, 'Hotels Module')
+
+
         def click_links(self):
            
             url_demo = 'https://phptravels.com/demo' 
@@ -90,18 +94,14 @@ class PageHome(PageElement):
 
             self.webdriver.find_element(*self.demo).click()
            
-            sleep(5)
+            sleep(2)
            
             url_browser_demo = self.webdriver.current_url 
         
             if url_browser_demo == url_demo:
 
                 self.webdriver.find_element(*self.pricing).click()
-               
-                sleep(2)
-               
-                self.webdriver.find_element(*self.product).click()       
-        
+                    
             url_browser_pricing = self.webdriver.current_url 
         
             if url_browser_pricing == url_pricing:
@@ -111,8 +111,27 @@ class PageHome(PageElement):
             else:
 
                 print('falhou!')
-          
-                           
+        
+        def link_product(self):
+            url_host_m = 'https://phptravels.com/hotels-module-features/'
+
+            self.webdriver.find_element(*self.product).click()          
+            
+            sleep(2)
+            
+            self.webdriver.find_element(*self.host_module).click() 
+
+            url_browser_host_m = self.webdriver.current_url   
+                
+            if url_browser_host_m == url_host_m:
+            
+                print(f'Urls estao ok corretas {url_browser_host_m} e {url_host_m}')
+            
+            else:
+
+                print (f'falha urls')
+
+
 # 3. ---------------------------------------------------------------------------------|
 
 #  Selenium call of functions 
@@ -130,6 +149,7 @@ page_home = PageHome(webdriver, url)
 page_home.open_browser()
 
 page_home.click_links()
+page_home.link_product()
 sleep(4)
         
 # page_home.exit_browser()
