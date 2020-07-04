@@ -69,7 +69,8 @@ class LoginPage(PageElement):
             self.webdriver.find_element(*self.check).click()    
            
             # self.webdriver.find_element(*self.captcha).click()
-            return f'ok correto: {url_browser}, {url}'
+            
+            return f'Ambas urls corretas: {url_browser}, {url}'
         
         else:
         
@@ -80,20 +81,26 @@ class PageHome(PageElement):
     
         demo = (By.LINK_TEXT, 'Demo')
         pricing = (By.LINK_TEXT, 'Pricing')
+        product =(By.CLASS_NAME, 'yx-njr')
       
         def click_links(self):
            
-            url_demo = 'https://phptravels.com/demo'
-           
+            url_demo = 'https://phptravels.com/demo' 
             url_pricing = 'https://phptravels.com/order'
 
             self.webdriver.find_element(*self.demo).click()
+           
             sleep(5)
+           
             url_browser_demo = self.webdriver.current_url 
         
             if url_browser_demo == url_demo:
 
                 self.webdriver.find_element(*self.pricing).click()
+               
+                sleep(2)
+               
+                self.webdriver.find_element(*self.product).click()       
         
             url_browser_pricing = self.webdriver.current_url 
         
