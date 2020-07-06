@@ -153,6 +153,21 @@ class PageHome(PageElement):
                 print (f'falha urls')
 
 
+class ValidedTexts(PageElement):
+
+    title_support = (By.LINK_TEXT, 'SUPPORT') 
+
+    def suporttext(self):
+        
+        textpage = 'SUPPORT'
+        
+        textpagebrowser = self.webdriver.find_element(*self.title_support).text
+
+        assert textpage == textpagebrowser
+        print('urls ok')
+        
+
+
 # 3. ---------------------------------------------------------------------------------|
 
 #  Selenium call of functions 
@@ -163,15 +178,22 @@ webdriver = Chrome()
 url = 'https://phptravels.com/'
 
 
+
+page_home_valied_text = ValidedTexts(webdriver, url)
+page_home_valied_text.open_browser()
+
+page_home_valied_text.suporttext()
+
 # --------------------------------------------------------|
 # ***** PAGE HOME  ***********
 
-page_home = PageHome(webdriver, url)
-page_home.open_browser()
+# page_home = PageHome(webdriver, url)
+# page_home.open_browser()
 
-page_home.click_links()
-page_home.link_product()
-sleep(4)
+
+# page_home.click_links()
+# page_home.link_product()
+# sleep(4)
         
 # page_home.exit_browser()
 
@@ -180,16 +202,16 @@ sleep(4)
 # ***** PAGE LOGIN  ***********
 
 # Pass instance and url  
-loga = LoginPage(webdriver, url)
-loga.open_browser()
+# loga = LoginPage(webdriver, url)
+# loga.open_browser()
 
 # *Call function
 # Insert value on field of login and printed on terminal true or false 
 
-print (loga.login(
-     email = 'mateus',
-     passw = 'abcd'
-))
+# print (loga.login(
+#      email = 'mateus',
+#      passw = 'abcd'
+# ))
 
-loga.exit_browser()
+# loga.exit_browser()
 
