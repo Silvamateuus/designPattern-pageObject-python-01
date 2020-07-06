@@ -1,4 +1,4 @@
-# ---------------------------- Pass-------------------------------------------------------------------|
+# ---------------------------- Pass---------------------------------------------------|
 
 #1 - create class abstract PageElement
     #a. Use lib abstract (abs)
@@ -85,6 +85,7 @@ class PageHome(PageElement):
         # Product       
         product = (By.CLASS_NAME, 'yx-njr')
         host_module = (By.LINK_TEXT, 'Hotels Module')
+        flights_module = (By.LINK_TEXT, 'Flights Module')
 
 
         def click_links(self):
@@ -113,8 +114,11 @@ class PageHome(PageElement):
                 print('falhou!')
         
         def link_product(self):
+          
             url_host_m = 'https://phptravels.com/hotels-module-features/'
-
+           
+            url_flights_module = 'https://phptravels.com/flights-module-features/'
+            
             self.webdriver.find_element(*self.product).click()          
             
             sleep(2)
@@ -122,11 +126,28 @@ class PageHome(PageElement):
             self.webdriver.find_element(*self.host_module).click() 
 
             url_browser_host_m = self.webdriver.current_url   
-                
+            
             if url_browser_host_m == url_host_m:
             
                 print(f'Urls estao ok corretas {url_browser_host_m} e {url_host_m}')
-            
+                
+                self.webdriver.find_element(*self.product).click() 
+
+                sleep(2)
+
+                self.webdriver.find_element(*self.flights_module).click()        
+                
+                url__browser_flights_module = self.webdriver.current_url
+
+                if url_flights_module == url__browser_flights_module:
+               
+                    print(f'Urls estao ok corretas {url__browser_flights_module} e {url_flights_module}')
+                
+                else:    
+
+                    print (f'falha urls')
+
+        
             else:
 
                 print (f'falha urls')
