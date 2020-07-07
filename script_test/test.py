@@ -147,7 +147,6 @@ class PageHome(PageElement):
 
                     print (f'falha urls')
 
-        
             else:
 
                 print (f'falha urls')
@@ -156,16 +155,29 @@ class PageHome(PageElement):
 class ValidedTexts(PageElement):
 
     title_support = (By.LINK_TEXT, 'SUPPORT') 
+    text_support = (By.XPATH, '//*[@id="Main"]/section[2]/div/div[2]/div[1]/div/p')
 
     def suporttext(self):
         
         textpage = 'SUPPORT'
         
+        alltext = 'We have a dedicated and expert support team for you, We communicate and help you with Livechat, Skype, Whatsapp and ticket system in real-time 24/7.'
+        
         textpagebrowser = self.webdriver.find_element(*self.title_support).text
 
         assert textpage == textpagebrowser
-        print('urls ok')
+    
+        print(f'titulos corretos {textpage} e {textpagebrowser}')
+    
+        text_support_all = self.webdriver.find_element(*self.text_support).text
+
+        if text_support_all == alltext:
         
+            print(f'textos corretos {text_sup   port_all} e {alltext}')
+        
+        else:
+
+            print(f'Erro {text_support_all}')
 
 
 # 3. ---------------------------------------------------------------------------------|
